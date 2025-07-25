@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'gallery.dart';
 import 'shop.dart';
 import 'components/drawer.dart';
+import 'controller/login.dart';
 
 
 void main() {
-  runApp(const MainApp());
+  runApp(MainApp()); 
 }
 
 class MainApp extends StatelessWidget {
@@ -13,9 +14,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp( 
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: const LoginPage(), 
     );
   }
 }
@@ -30,7 +31,7 @@ class MainScreen extends StatelessWidget {
         title: const Text('ListView & GridView App'),
         backgroundColor: Colors.blue,
       ),
-      drawer: const MyDrawer(), // ✅ เพิ่ม Drawer ที่นี่
+      drawer: const MyDrawer(),
       body: const SafeArea(
         child: ContentView(),
       ),
@@ -45,9 +46,6 @@ class ContentView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // ✅ ลบ AppBar ปลอมออกแล้ว
-
-        // หัวข้อ GridView
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Row(
@@ -77,7 +75,6 @@ class ContentView extends StatelessWidget {
           ),
         ),
 
-        // GridView ด้านบน
         SizedBox(
           height: 300,
           child: GridView.builder(
@@ -122,7 +119,6 @@ class ContentView extends StatelessWidget {
           ),
         ),
 
-        // หัวข้อ ListView + ดูทั้งหมด
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 16, 12, 4),
           child: Row(
@@ -152,7 +148,6 @@ class ContentView extends StatelessWidget {
           ),
         ),
 
-        // ListView ด้านล่าง
         const Expanded(
           child: MyListView(),
         ),
